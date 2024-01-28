@@ -1,0 +1,27 @@
+# Nuxt dev/build outputs
+.git
+.output
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+*.rar
+*.7zip
+*.output
+*.nuxt
+# Local env files
+.env
+.env.*
+!.env.example
