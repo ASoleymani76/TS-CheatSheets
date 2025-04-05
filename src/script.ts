@@ -28,7 +28,7 @@ console.log(sum2(1,2,3,4,5,6))
 
 // Objects & making custom Type
 type myObj = {            //regular type
-    name: string,
+    name: string
     age: (num: number) => string
 }
 let person: myObj = {name: 'Ali', age: (num: number) => '15'};
@@ -81,7 +81,7 @@ print(obj);
 interface person {
     name: string
     family: string
-    age: number,
+    age: number
     fullName(): string
 }
 
@@ -97,3 +97,20 @@ class Amir implements person {
 }
 let amirhossein : person =  new Amir('amirhossein', 'soleymani' , 25);
 console.log(amirhossein.fullName())
+
+// singleton class
+class Singleton {
+    private static instance : Singleton
+
+    private constructor() {}
+
+    getSingletonClass () : singleton {
+        if (!Singleton.instance){
+            Singleton.instance = new Singleton();
+        } return Singleton.instance;
+    }
+}
+
+let single = Singleton.getSingletonClass();
+let single2 = Singleton.getSingletonClass();
+console.log(single === single2);
