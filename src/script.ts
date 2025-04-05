@@ -43,7 +43,7 @@ class Car {
     public engine: string = '2000 cc';
     private model: string = '1995';
     protected price: string = '20000 $';
-    static gear: number = 6;
+    static gear: number = 6;   // using static means when we want to call variable, we have say => Car.gear
 
     // Constructor
     constructor(public color: string) {
@@ -56,7 +56,7 @@ class Car {
     }
 
     static logGears() {
-        console.log(this.gear);
+        console.log(Car.gear);
     }
 }
 
@@ -76,6 +76,16 @@ function print(labelObj: myLabel) {
 
 let obj = {size: 10, label: 'Sheet'}
 print(obj);
+
+// Interface in functions
+interface ISearch{
+    (source: string, search?: string): string
+}
+
+let search :ISearch = (source: string, search: string) =>{
+    let result = source.search(search);
+    return result > -1;
+}
 
 // interfaces usage in classes (implements)
 interface person {
@@ -104,7 +114,7 @@ class Singleton {
 
     private constructor() {}
 
-    getSingletonClass () : singleton {
+    public static getSingletonClass () : Singleton {
         if (!Singleton.instance){
             Singleton.instance = new Singleton();
         } return Singleton.instance;

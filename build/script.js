@@ -67,9 +67,9 @@ var Car = /** @class */ (function () {
         return this.price;
     };
     Car.logGears = function () {
-        console.log(this.gear);
+        console.log(Car.gear);
     };
-    Car.gear = 6;
+    Car.gear = 6; // using static means when we want to call variable, we have say => Car.gear
     return Car;
 }());
 var car1 = new Car('Black');
@@ -92,3 +92,18 @@ var Amir = /** @class */ (function () {
 }());
 var amirhossein = new Amir('amirhossein', 'soleymani', 25);
 console.log(amirhossein.fullName());
+// singleton class
+var Singleton = /** @class */ (function () {
+    function Singleton() {
+    }
+    Singleton.getSingletonClass = function () {
+        if (!Singleton.instance) {
+            Singleton.instance = new Singleton();
+        }
+        return Singleton.instance;
+    };
+    return Singleton;
+}());
+var single = Singleton.getSingletonClass();
+var single2 = Singleton.getSingletonClass();
+console.log(single === single2);
