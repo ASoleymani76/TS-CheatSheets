@@ -124,3 +124,22 @@ class Singleton {
 let single = Singleton.getSingletonClass();
 let single2 = Singleton.getSingletonClass();
 console.log(single === single2);
+
+// Generics
+function logData(data : T) : T {
+    return data;
+}
+function logArray(data : T[]) : T[]{
+    return data;
+}
+console.log(logData<string>('Hello world!'));
+console.log(logArray<string>(['1','Hi']));
+
+// Generics in Interfaces
+interface IMyLogFuncInterface<T> {
+    (data : T) : T;
+}
+let myLogFuncInterface :IMyLogFuncInterface<number>
+myLogFuncInterface = function (data : number) : number{
+    return data;
+}
